@@ -53,12 +53,38 @@ void zadanie4()
   }
 }
 
+void zadanie5()
+{
+  int n, licznik = 1;
+
+  puts("Podaj liczbe calkowita: ");
+  scanf("%d", &n);
+
+  while(n != 1)
+  {
+    if(n % 2 == 0)
+    {
+      n /= 2;
+    }
+    else
+    {
+      n = n*3 + 1;
+    }
+
+    printf("%d\n", n);
+    licznik++;
+  }
+
+  printf("Wykonano: %d operacji\n", licznik);
+}
+
 int main()
 {
   // zadanie1();
   // zadanie2();
   // zadanie3();
   // zadanie4();
+  zadanie5();
 
   return 0;
 }
