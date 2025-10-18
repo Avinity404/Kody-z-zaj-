@@ -1,5 +1,10 @@
 #include <stdio.h>
 #include <math.h>
+#include <time.h>
+#include <stdlib.h>
+
+#define N 100
+#define M 10
 
 void zadanie1()
 {
@@ -77,6 +82,111 @@ void zadanie5()
 
   printf("Wykonano: %d operacji\n", licznik);
 }
+
+void zadanie6()
+{
+    srand(time(NULL));
+
+    int szukana, podana, proby = 0;
+
+    szukana = rand() % 1000 + 1;
+
+    puts("Zakres poszukiwania 1-1000");
+
+    while (1)
+    {
+        printf("Zgadnij numer: ");
+        scanf("%d", &podana);
+        printf("\n");
+        proby++;
+
+        if (podana == szukana)
+        {
+            break;
+        }
+
+        if (podana > szukana)
+        {
+            printf("Za duzo\n");
+        }
+        else
+        {
+            printf("za malo\n");
+        }
+    }
+
+    printf("%d jest liczba szukana\n", szukana);
+    printf("Udalo ci sie zgadnac w %d prubach\n", proby);
+}
+
+void zadanie7()
+{
+    int tab[N];
+    int max, min;
+    srand(time(NULL));
+
+    for (int i = 0; i < N; i++)
+    {
+        tab[i] = rand() % 81 + 10;
+    }
+
+    max = tab[0];
+    min = tab[0];
+
+    for (int i = 0; i < N; i++)
+    {
+        if (tab[i] > max)
+        {
+            max = tab[i];
+        }
+
+        if (tab[i] < min)
+        {
+            min = tab[i];
+        }
+    }
+
+    printf("Wartosci max: %d, min: %d\n", max, min);
+}
+
+void zadanie8()
+{
+    int tab[M];
+    int suma = 0, szukana, wystapienia = 0;
+    float srednia;
+
+    printf("Podaj %d liczb\n", M);
+
+    for (int i = 0; i < M; i++)
+    {
+        scanf("%d", &tab[i]);
+        suma += tab[i];
+    }
+
+    srednia = (float)suma / (float)M;
+    printf("Srednia tych liczb to: %.2f\n", srednia);
+
+    puts("Podaj liczbe do znalezienia: ");
+    scanf("%d", &szukana);
+
+    for (int i = 0; i < M; i++)
+    {
+        if (tab[i] == szukana)
+        {
+            wystapienia++;
+        }
+    }
+
+    if (wystapienia)
+    {
+        printf("Wartosc %d, wystepuje %d razy\n", szukana, wystapienia);
+    }
+    else
+    {
+        printf("Szukana wartosc nie wystepuje\n");
+    }
+}
+
 
 int main()
 {
